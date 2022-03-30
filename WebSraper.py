@@ -7,7 +7,8 @@ response = requests.get(url)
 htmlcontent = response.content
 soup = BeautifulSoup(htmlcontent, 'html.parser')
 
-print(soup.title)
-"""print(response.content)
-soup = BeautifulSoup("")
-print(soup.prettify())"""
+for image in soup.find_all('img'):
+    print(image.get('src'))
+
+product = soup.find_all('div')
+
